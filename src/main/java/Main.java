@@ -15,7 +15,7 @@ public class Main {
                      PrintWriter out = new PrintWriter(clienSocket.getOutputStream(), true);
                      BufferedReader in = new BufferedReader(new InputStreamReader(clienSocket.getInputStream()));
                 ) {
-                    String req = in.readLine();
+                    String req = in.readLine().toLowerCase();
                     var res = engine.search(req);
                     ObjectMapper mapper = new ObjectMapper();
                     StringWriter writer = new StringWriter();

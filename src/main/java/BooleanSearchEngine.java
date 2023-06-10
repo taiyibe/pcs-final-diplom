@@ -38,14 +38,13 @@ public class BooleanSearchEngine implements SearchEngine {
                 }
             }
         }
+        for (String w : entrys.keySet()) {
+            Collections.sort(entrys.get(w));
+        }
     }
 
     @Override
     public List<PageEntry> search(String word) {
-        if (entrys.containsKey(word)) {
-            Collections.sort(entrys.get(word));
-            return entrys.get(word);
-        } else
-            return Collections.emptyList();
+        return entrys.getOrDefault(word, Collections.emptyList());
     }
 }
